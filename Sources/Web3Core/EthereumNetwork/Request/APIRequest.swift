@@ -96,7 +96,7 @@ public enum APIRequest {
     /// - Parameters:
     ///     - TransactionParameters: parameters of planned transaction
     ///     - BlockNumber: block where it should be evaluated
-    case estimateGas(CodableTransaction, BlockNumber)
+    case estimateGas(CodableTransaction, BlockNumber?)
 
     /// Send raw transaction
     /// - Parameters:

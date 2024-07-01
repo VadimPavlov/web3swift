@@ -13,7 +13,7 @@ public protocol IEth {
     func send(_ transaction: CodableTransaction) async throws -> TransactionSendingResult
     func send(raw data: Data) async throws -> TransactionSendingResult
 
-    func estimateGas(for transaction: CodableTransaction, onBlock: BlockNumber) async throws -> BigUInt
+    func estimateGas(for transaction: CodableTransaction, onBlock: BlockNumber?) async throws -> BigUInt
     func feeHistory(blockCount: BigUInt, block: BlockNumber, percentiles: [Double]) async throws -> Oracle.FeeHistory
     func ownedAccounts() async throws -> [EthereumAddress]
     func getBalance(for address: EthereumAddress, onBlock: BlockNumber) async throws -> BigUInt

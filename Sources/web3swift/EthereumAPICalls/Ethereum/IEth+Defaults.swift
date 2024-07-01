@@ -20,7 +20,7 @@ public extension IEth {
         try await estimateGas(for: transaction, onBlock: .latest)
     }
 
-    func estimateGas(for transaction: CodableTransaction, onBlock: BlockNumber) async throws -> BigUInt {
+    func estimateGas(for transaction: CodableTransaction, onBlock: BlockNumber?) async throws -> BigUInt {
         let request = APIRequest.estimateGas(transaction, onBlock)
         return try await APIRequest.sendRequest(with: provider, for: request).result
     }

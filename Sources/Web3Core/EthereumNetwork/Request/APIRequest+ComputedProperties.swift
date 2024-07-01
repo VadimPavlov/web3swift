@@ -22,7 +22,7 @@ extension APIRequest {
             return [RequestParameter]()
 
         case .estimateGas(let transactionParameters, let blockNumber):
-            return [.transaction(transactionParameters), .string(blockNumber.description)]
+            return [.transaction(transactionParameters), blockNumber.map { .string($0.description) }].compactMap { $0 }
 
         case let .sendRawTransaction(hash):
             return [.string(hash)]
