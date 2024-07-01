@@ -240,7 +240,7 @@ extension CodableTransaction: Codable {
             try containier.encode(gasLimit.hexString, forKey: .gasLimit)
         }
 
-        if let gasPrice = gasPrice, !gasPrice.isZero {
+        if let gasPrice = gasPrice/*, !gasPrice.isZero*/ {
             try containier.encode(gasPrice.hexString, forKey: .gasPrice)
         }
 
