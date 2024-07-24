@@ -88,7 +88,7 @@ public class PolicyResolver {
 
 extension PolicyResolver {
     private func estimateGas(for transaction: CodableTransaction) async throws -> BigUInt {
-        let request: APIRequest = .estimateGas(transaction, transaction.callOnBlock ?? .latest)
+        let request: APIRequest = .estimateGas(transaction, transaction.callOnBlock)
         let response: APIResponse<BigUInt> = try await APIRequest.sendRequest(with: provider, for: request)
         return response.result
     }

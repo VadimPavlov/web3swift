@@ -292,10 +292,10 @@ extension CodableTransaction {
     ///   - s: signature s parameter (default 0) - will get set properly once signed
     ///   - parameters: EthereumParameters object containing additional parameters for the transaction like gas
     public init(type: TransactionType? = nil, to: EthereumAddress, nonce: BigUInt = 0,
-                chainID: BigUInt = 0, value: BigUInt = 0, data: Data = Data(),
+                chainID: BigUInt = 0, value: BigUInt = 0, data: Data = Data(), callOnBlock: BlockNumber? = .latest,
                 gasLimit: BigUInt = 0, maxFeePerGas: BigUInt? = nil, maxPriorityFeePerGas: BigUInt? = nil, gasPrice: BigUInt? = nil,
                 accessList: [AccessListEntry]? = nil, v: BigUInt = 1, r: BigUInt = 0, s: BigUInt = 0) {
-        callOnBlock = .latest
+        self.callOnBlock = callOnBlock
 
         envelope = EnvelopeFactory.createEnvelope(type: type, to: to, nonce: nonce, chainID: chainID, value: value, data: data, gasLimit: gasLimit, maxFeePerGas: maxFeePerGas, maxPriorityFeePerGas: maxPriorityFeePerGas, gasPrice: gasPrice, accessList: accessList, v: v, r: r, s: s)
     }
